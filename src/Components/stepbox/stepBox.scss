@@ -1,0 +1,47 @@
+@use "../base";
+
+.form {
+    display: flex;
+    @include base.boxSize(1200px, 700px);
+    background-color: base.$White;
+    border-radius: 8px;
+    padding: 25px;
+    &__steps {
+        @include base.display(column, null, null);
+        @include base.boxSize(30%, 100%);
+        @include base.font(18px, 400, base.$White);
+        border-radius: 8px;
+        background-image: url("../../assets/images/bg-sidebar-desktop.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding: 35px;
+        display: flex;
+        margin-right: 10%;
+
+        &--step {
+            margin-bottom: 30px;
+            @include base.display(null, null, center);
+        }
+        &--num {
+            @include base.display(null, center, center);
+            @include base.boxSize(40px, 40px);
+            margin-right: 20px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 1px solid base.$White;
+            font-weight: 700;
+            &--active {
+                @extend .form__steps--num;
+                background-color: base.$LightBlue;
+                color: base.$marineBlue;
+                border: 1px solid transparent;
+            }
+        }
+        &--regular {
+            @include base.font(16px, 500, base.$CoolGray);
+        }
+        &--bold {
+            font-weight: 600;
+        }
+    }
+}

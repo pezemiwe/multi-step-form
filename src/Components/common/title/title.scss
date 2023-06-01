@@ -1,0 +1,19 @@
+@use "../../base";
+
+.form {
+    display: flex;
+    padding: 25px;
+    &__details {
+        flex: 1;
+        flex-direction: column;
+        padding-top: 25px;
+        &--title {
+            @include base.font(40px, 800, base.$marineBlue);
+            margin-bottom: 10px;
+        }
+        &--subtitle {
+            @include base.font(20px, 400, base.$CoolGray);
+            margin-bottom: 40px;
+        }
+    }
+}

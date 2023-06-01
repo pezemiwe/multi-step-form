@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import "./App.scss";
+import { ButtonGroup } from "./Components/common/button";
+import { StepBox } from "./Components/stepbox";
+import { YourInfo } from "./Components/yourInfo";
+import { SelectPlan } from "./Components/selectPlan";
 
 function App() {
+  const [step, setStep] = React.useState(1);
+
+  const handleNext = () => {
+    setStep(step + 1);
+  };
+  const handleBack = () => {
+    setStep(step - 1);
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <YourInfo
+            children={
+              <ButtonGroup
+                step={step}
+                handleBack={handleBack}
+                handleNext={handleNext}
+              />
+            }
+          />
+        );
+      case 2:
+        return (
+          <SelectPlan
+            children={
+              <ButtonGroup
+                step={step}
+                handleBack={handleBack}
+                handleNext={handleNext}
+              />
+            }
+          />
+        );
+      default:
+        return <YourInfo />;
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StepBox step={step}>{renderStep()}</StepBox>
     </div>
   );
 }

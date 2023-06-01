@@ -1,0 +1,36 @@
+@use "../../base";
+
+.button {
+    background-color: base.$marineBlue;
+    color: base.$White;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    height: 46px;
+    cursor: pointer;
+    padding: 0px 20px;
+    &--outline {
+        @extend .button;
+        background-color: base.$White;
+        color: base.$CoolGray;
+        border: none;
+        font-weight: 700;
+        &:hover {
+            background-color: base.$White;
+            color: base.$marineBlue;
+        }
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.button__group {
+    @include base.display(flex, space-between, center);
+    width: 80%;
+    margin-bottom: 20px;
+    &--single {
+        @extend .button__group;
+        justify-content: flex-end;
+    }
+}

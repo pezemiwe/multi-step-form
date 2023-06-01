@@ -1,0 +1,27 @@
+@use "../base";
+
+.plan {
+    display: flex;
+    padding: 25px;
+    &__details {
+        @include base.display(column, space-between, null);
+    }
+
+    &__info {
+        &--box {
+            margin-bottom: 30px;
+        }
+        &--names {
+            @include base.font(20px, 500, base.$marineBlue);
+            margin-bottom: 10px;
+        }
+        &--name {
+            @include base.font(20px, 500, base.$CoolGray);
+            @include base.boxSize(80%, 60px);
+            border-radius: 8px;
+            padding-left: 10px;
+            height: 46px;
+            border: 1px solid base.$LightGray;
+        }
+    }
+}
